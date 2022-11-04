@@ -6,10 +6,13 @@ import { Keyboard } from './Keyboard'
 
 function App() {
 const [wordGuess, setWordGuess] = useState(() => {
+  // return random word
   return words[Math.floor(Math.random() * words.length)] 
 })
 
 const [guessedLetters, setGuessedLetters] = useState<string[]>([])
+
+const incorrectLetters = guessedLetters.filter(letter => !wordGuess.includes(letter))
 
   return (
     <>
@@ -22,7 +25,7 @@ const [guessedLetters, setGuessedLetters] = useState<string[]>([])
       alignItems: 'center'
     }}>
        <div style={{ fontSize: '2rem', textAlign: 'center' }}>Lose Win</div>
-       <HangmanDrawing />
+       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
        <HangmanWord />
        <div style={{ alignSelf: 'stretch' }}>
         <Keyboard />

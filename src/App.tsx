@@ -26,7 +26,7 @@ const incorrectLetters = guessedLetters.filter(letter => !wordGuess.includes(let
     }}>
        <div style={{ fontSize: '2rem', textAlign: 'center' }}>Lose Win</div>
        <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-       <HangmanWord />
+       <HangmanWord guessedLetters={guessedLetters} wordGuess={wordGuess} />
        <div style={{ alignSelf: 'stretch' }}>
         <Keyboard />
        </div>
